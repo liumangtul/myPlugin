@@ -7,9 +7,9 @@
           content="width=device-width,target-densitydpi=medium-dpi,minimum-scale=1.0,maximum-scale=1.0"/>
     <meta name="format-detection" content="telephone=no"/>
     <title>两种弹出窗</title>
-    <link rel="stylesheet" href="./css/dist/yanAlert.css">
+    <link rel="stylesheet" href="./css/yanAlert.css">
     <script src="./js/sea.js"></script>
-    <script src="./js/yanAlert.js"></script>
+    <script src="./js/dist/yanAlert.js"></script>
     <script>
         seajs.config({
             base:'http://localhost:8080/',
@@ -17,22 +17,25 @@
             debug:true,
             // 路径配置
             paths:{
-                'path1':'/Newgene360/Public/gene_mall/js/',
-                'common_path':'/confrim/js/'
+                'path1':'/yanAlert/js/',
+                'common_path':'/yanAlert/js/'
             },
             // 别名配置
             alias:{
-                'jquery':'common_path/jquery-1.7.2_sea.min.js'
+                'jquery':'common_path/jquery-1.7.2_sea.min.js',
+                'yanAlert':'path1/dist/yanAlert.js'
             },
             // 映射配置
             preload: ["jquery",'iScroll']
         });
     </script>
     <script>
-        seajs.use(['jquery'],function ($) {
+        seajs.use(['jquery','yanAlert'],function ($,yanAlert) {
+            var yanAlert=yanAlert.yanAlert;
+            console.log(yanAlert)
             $(function () {
                 $('button').click(function () {
-                    yan.alert.confrim({
+                    yanAlert.alert.confrim({
                         text:'确定删除吗？',
                         btn:['删除','取消']
                     },function (close) {
@@ -40,7 +43,7 @@
                     })
                 });
                 $('a').click(function () {
-                    yan.alert.confrim({
+                    yanAlert.alert.confrim({
                         text:'确定新增吗？',
                         btn:['新增','取消']
                     },function (close) {
@@ -48,14 +51,14 @@
                     })
                 });
 
-                yan.alert.msg({
+                yanAlert.alert.msg({
                     time:1500,
                     text:'欢迎光临！'
                 },function () {
 
                 })
                 $('span').click(function () {
-                    yan.alert.msg({
+                    yanAlert.alert.msg({
                         time:1500,
                         text:'加载成功！'
                     },function () {
