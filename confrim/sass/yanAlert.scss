@@ -1,5 +1,6 @@
 *{margin:0;padding:0;}
 $color:#333 #eee #F8F8F8;
+/*询问弹窗*/
 .yanConfrim{
   display: none;
   position:fixed;
@@ -167,6 +168,52 @@ $color:#333 #eee #F8F8F8;
       a:hover{
         opacity: 1;
       }
+    }
+  }
+}
+/*提示弹窗*/
+.yanMsg{
+  display: none;
+  position: fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  .yanMsgMask{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity:.0;
+    filter: alpha(opacity=0);
+  }
+  .yanMsgBox{
+    position: absolute;
+    left:50%;
+    top:50%;
+    width:150px;
+    color:#fff;
+    padding: 10px 10px;
+    text-align: center;
+    margin:-20px -85px;
+    .yanMsgBoxBg{
+      position: absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      background: #000;
+      opacity:.7;
+      filter: alpha(opacity=70);
+    }
+    p{
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      line-height: 20px;
+      display: inline-block;
     }
   }
 }

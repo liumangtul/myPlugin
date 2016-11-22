@@ -6,10 +6,10 @@
     <meta name="viewport"
           content="width=device-width,target-densitydpi=medium-dpi,minimum-scale=1.0,maximum-scale=1.0"/>
     <meta name="format-detection" content="telephone=no"/>
-    <title>弹出窗-两个按钮</title>
-    <link rel="stylesheet" href="./css/dist/confrim.css">
+    <title>两种弹出窗</title>
+    <link rel="stylesheet" href="./css/dist/yanAlert.css">
     <script src="./js/sea.js"></script>
-    <script src="./js/confrim.js"></script>
+    <script src="./js/yanAlert.js"></script>
     <script>
         seajs.config({
             base:'http://localhost:8080/',
@@ -47,6 +47,21 @@
                         close();
                     })
                 });
+
+                yan.alert.msg({
+                    time:1500,
+                    text:'欢迎光临！'
+                },function () {
+
+                })
+                $('span').click(function () {
+                    yan.alert.msg({
+                        time:1500,
+                        text:'加载成功！'
+                    },function () {
+
+                    })
+                })
             })
         })
     </script>
@@ -54,5 +69,6 @@
 <body>
     <button>删除</button>
     <a href="javascript:;">新增</a>
+    <span>load...</span>
 </body>
 </html>

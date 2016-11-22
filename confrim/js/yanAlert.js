@@ -31,6 +31,22 @@ var yan={
                 cancelFn && cancelFn();
             });
 
+        },
+        msg:function (OPTION,okFn) {
+            if($('.yanMsg').length>0)$('.yanMsg').remove();
+            var str='<div class="yanMsg">'+
+            '           <div class="yanMsgMask"></div>'+
+            '           <div class="yanMsgBox">'+
+            '               <div class="yanMsgBoxBg"></div>'+
+            '               <p>'+OPTION.text+'</p>'+
+            '           </div>'+
+            '       </div>';
+            $('body').append(str);
+            $('.yanMsg').show();
+            setTimeout(function () {
+                if($('.yanMsg').length>0)$('.yanMsg').remove();
+                okFn && okFn();
+            },OPTION.time);
         }
     }
 }
