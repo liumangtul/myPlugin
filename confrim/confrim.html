@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,target-densitydpi=medium-dpi,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>弹出窗-两个按钮</title>
+    <link rel="stylesheet" href="./css/dist/confrim.css">
+    <script src="./js/sea.js"></script>
+    <script src="./js/confrim.js"></script>
+    <script>
+        seajs.config({
+            base:'http://localhost:8080/',
+            // 调试模式
+            debug:true,
+            // 路径配置
+            paths:{
+                'path1':'/Newgene360/Public/gene_mall/js/',
+                'common_path':'/confrim/js/'
+            },
+            // 别名配置
+            alias:{
+                'jquery':'common_path/jquery-1.7.2_sea.min.js'
+            },
+            // 映射配置
+            preload: ["jquery",'iScroll']
+        });
+    </script>
+    <script>
+        seajs.use(['jquery'],function ($) {
+            $(function () {
+                $('button').click(function () {
+                    yan.alert.confrim({
+                        text:'确定删除吗？',
+                        btn:['删除','取消']
+                    },function (close) {
+                        close();
+                    })
+                });
+                $('a').click(function () {
+                    yan.alert.confrim({
+                        text:'确定新增吗？',
+                        btn:['新增','取消']
+                    },function (close) {
+                        close();
+                    })
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>删除</button>
+    <a href="javascript:;">新增</a>
+</body>
+</html>
